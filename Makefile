@@ -16,7 +16,8 @@
 
 .DEFAULT_GOAL := docker-image
 
-IMAGE ?= stackrox/admission-controller-webhook-demo:latest
+#IMAGE ?= stackrox/admission-controller-webhook-demo:latest
+IMAGE ?= haugom/admission-controller-webhook-demo:latest
 
 image/webhook-server: $(shell find . -name '*.go')
 	CGO_ENABLED=0 GOOS=linux go build -ldflags="-s -w" -o $@ ./cmd/webhook-server
